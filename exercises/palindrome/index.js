@@ -7,6 +7,28 @@
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
-function palindrome(str) {}
+function palindrome(str) {
+	return str.split('').reduce((rev, char) => char + rev, '') === str;
+}
 
 module.exports = palindrome;
+
+/* Using reduce() and reversestring logic with ternary operator to one line solve it.
+function palindrome(str) {
+	return str.split('').reduce((rev, char) => char + rev, '') === str;
+}
+*/
+
+/* Using every() helper to check the current value (char) against the opposite end of the array (-1 to stay 0 indexed)
+function palindrome(str) {
+	return str.split('').every((char, i) => {
+		return char === str[str.length - i - 1];
+	});
+}
+*/
+
+/* Simple, condensed with reverse()
+function palindrome(str) {
+	return str.split('').reverse().join('') === str;
+}
+*/
